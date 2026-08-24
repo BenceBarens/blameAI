@@ -35,7 +35,7 @@ jobs:
                 if (!Array.isArray(history)) history = [];
               }
             } catch (error) {
-              console.log("No Gist history found.");
+              console.log("No existing Gist history found or parse error.");
             }
 
             //Fetch PR data
@@ -51,36 +51,54 @@ jobs:
             const prData = await prResponse.json();
             const prCount = prData.total_count || 0;
 
-            //Fetch OpenAI status
-            let openaiStatus = "unknown";
+            //Fetch OpenAI status, components, and description
+            let openaiChat = "unknown";
+            let openaiApi = "unknown";
+            let openaiMessage = "unknown";
             try {
               const oRes = await fetch('https://status.openai.com/api/v2/summary.json');
               const oData = await oRes.json();
-              openaiStatus = oData.status.indicator; // 'none', 'minor', 'major', 'critical'
-            } catch (e) { console.log("OpenAI fetch failed"); }
+              
+              openaiMessage = oData.status.description; // The human-readable status message
+              
+              const chatComp = oData.components.find(c => c.name === 'ChatGPT');
+              const apiComp = oData.components.find(c => c.name === 'API');
+              
+              openaiChat = chatComp ? chatComp.status : "unknown";
+              openaiApi = apiComp ? apiComp.status : "unknown";
+            } catch (e) { 
+              console.log("OpenAI fetch failed"); 
+            }
 
-            //Fetch Claude status
-            let claudeStatus = "unknown";
+            //Fetch Claude status, components, and description
+            let claudeWeb = "unknown";
+            let claudeApi = "unknown";
+            let claudeMessage = "unknown";
             try {
               const cRes = await fetch('https://status.anthropic.com/api/v2/summary.json');
               const cData = await cRes.json();
-              claudeStatus = cData.status.indicator;
-            } catch (e) { console.log("Claude fetch failed"); }
-
-            //Fetch Gemini status
-            let geminiStatus = "unknown";
-            try {
-              const gRes = await fetch('https://gemini.google.com');
-              geminiStatus = gRes.ok ? "none" : "major"; // 'none' = no issues
-            } catch (e) { geminiStatus = "major"; }
+              
+              claudeMessage = cData.status.description; // The human-readable status message
+              
+              const webComp = cData.components.find(c => c.name === 'claude.ai');
+              const apiComp = cData.components.find(c => c.name === 'API');
+              
+              claudeWeb = webComp ? webComp.status : "unknown";
+              claudeApi = apiComp ? apiComp.status : "unknown";
+            } catch (e) { 
+              console.log("Claude fetch failed"); 
+            }
 
             //Build JSON
             const newEntry = {
               timestamp: new Date().toISOString(),
               prs: prCount,
-              openai: openaiStatus,
-              claude: claudeStatus,
-              gemini: geminiStatus
+              openai_chatgpt: openaiChat,
+              openai_api: openaiApi,
+              openai_message: openaiMessage,
+              claude_web: claudeWeb,
+              claude_api: claudeApi,
+              claude_message: claudeMessage
             };
 
             console.log("New data point:", newEntry);
