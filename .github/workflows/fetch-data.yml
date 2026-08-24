@@ -45,7 +45,7 @@ jobs:
             
             if (!prResponse.ok) {
               console.error("GitHub API Error:", await prResponse.text());
-              throw new Error("Couldn't fetch PR data);
+              throw new Error("Couldn't fetch PR data");
             }
             
             const prData = await prResponse.json();
