@@ -10,26 +10,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch and Update Data
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         env:
           GIST_ID: ${{ secrets.GIST_ID }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
         with:
           script: |
             const gistId = process.env.GIST_ID;
+            
             const headers = {
               'Authorization': `token ${process.env.GIST_TOKEN}`,
-              'Accept': 'application/vnd.github.v3+json'
+              'Accept': 'application/vnd.github.v3+json',
+              'User-Agent': 'BlameAI-Tracker-Action' 
             };
 
             //Fetch Gist history
             let history = [];
             try {
               const gistRes = await fetch(`https://api.github.com/gists/${gistId}`, { headers });
-              const gistData = await gistRes.json();
-              const content = gistData.files['tracker-data.json'].content;
-              history = JSON.parse(content);
-              if (!Array.isArray(history)) history = [];
+              if (gistRes.ok) {
+                const gistData = await gistRes.json();
+                const content = gistData.files['tracker-data.json'].content;
+                history = JSON.parse(content);
+                if (!Array.isArray(history)) history = [];
+              }
             } catch (error) {
               console.log("No Gist history found.");
             }
@@ -37,7 +41,13 @@ jobs:
             //Fetch PR data
             const fifteenMinsAgo = new Date(Date.now() - 15 * 60000).toISOString();
             const prQuery = encodeURIComponent(`is:pr created:>=${fifteenMinsAgo}`);
-            const prResponse = await fetch(`https://api.github.com/search/issues?q=${prQuery}`);
+            const prResponse = await fetch(`https://api.github.com/search/issues?q=${prQuery}`, { headers });
+            
+            if (!prResponse.ok) {
+              console.error("GitHub API Error:", await prResponse.text());
+              throw new Error("Couldn't fetch PR data);
+            }
+            
             const prData = await prResponse.json();
             const prCount = prData.total_count || 0;
 
@@ -73,7 +83,7 @@ jobs:
               gemini: geminiStatus
             };
 
-            console.log("Nieuw datapunt:", newEntry);
+            console.log("New data point:", newEntry);
             history.push(newEntry);
 
             //Slice history to max 30 days
