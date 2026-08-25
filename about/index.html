@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Bence Barens">
 
-    <title>Blame AI</title>
+    <title>Blame AI | about</title>
     <meta name="description" content="">
     <meta name="robots" content="index,follow">
 
@@ -14,72 +14,58 @@
     <meta property="og:image" content="">
     <meta property="og:url" content="">
 
-    <link rel="stylesheet" href="assets/main.css">
-    <!-- <meta name="theme-color" content="#ff0000"> -->
+    <link rel="icon" type="image/png" href="https://bencebarens.nl/img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://bencebarens.nl/img/favicon/favicon.svg">
+    <link rel="shortcut icon" href="https://bencebarens.nl/img/favicon/favicon.ico">
+    <link rel="manifest" href="https://bencebarens.nl/img/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="../assets/main.css">
 </head>
-<body>
-    <!-- <a href="#main">Skip to main content</a> -->
-    <header>
+<body id="about">
+    <header id="site-header">
+        <h1>BLAME AI</h1>
+        <p>Compare the downtime of major AI programs to the number of pull requests made on GitHub to estimate how doomed society is.</p>
     </header>
+
     <main id="main">
+        <section id="toolbar-section">
+            <h2 class="sr-only">Navigation and filters</h2>
+                <nav aria-label="Main navigation" class="toolbar-layout">
+                    <a href="../">Go back to the graph</a>
+                    <ul class="nav-links">
+                        <li><a href="">About this graph</a></li>
+                        <li><a href="" aria-current="page">About this site</a></li>
+                        <li><a href="">Source data</a></li>
+                    </ul>
+                </nav>
+        </section>
+        <section>
+            <h2>Font</h2>
+            <p>If you wish this website was made with a more legible font, I feel you. However, the font you're looking at is my personal handwriting. While I absolutely could have used a different font, you could also stop whining because life isn't perfect. It's a blessing to be able to embrace imperfection, so enjoy it while you still can.</p>
+        </section>
+        <section>
+            <h2>Enviromental impact</h2>
+            <p>Hosting any website or requesting data on the internet costs electricity. For this reason, this poorly optimised hobby site passively emits about 100 to 200 grams of CO₂ per year (enqual to charging a phone 25 times) and another ~0.3 grams per visit. Since it is powered by GitHub Pages and GitHub Actions, which are owned by Microsoft, the net emittions are 0 grams of CO₂.</p>
+            <p>One ChatGPT prompt emits about 0,17 to 1 gram of CO₂, and the training of AI in general is about 32,6 to 79,7 million tons per year as of 2026.</p>
+        </section>
+        <section>
+            <h2>Legal &amp; disclaimer</h2>
 
-        <div id="section-intro">
-            <h1>BLAME AI</h1>
-            <p>Compare the downtime of mayor AI programs to the number of pull requests made on GitHub to estimate how doomed society is.</p>
-        </div>
+            <h3>No liability</h3>
+            <p>Blame AI is a hobby project built for entertainment, satire, and mild existential dread. The data provided here is for informational purposes only. Please do not use this graph for financial trading, academic research, or to accurately time the collapse of society. The site is provided "as is", without any warranties. I take absolutely no responsibility if the tracker breaks, if the data is inaccurate, if your dog eats chocolate or if the AI overlords take offense to this website.</p>
 
-        <div id="section-menu">
-            <nav>
-                <ul>
-                    <li><a href="">About this graph</a></li>
-                    ·
-                    <li><a href="">About this site</a></li>
-                    ·
-                    <li><a href="">Source data</a></li>
-                </ul>
-            </nav>
-            <menu class="controls-container">
-                <li><button onclick="updateChart(96)" type="button">24 hours</button></li>
-                ·
-                <li><button onclick="updateChart(672)" type="button">7 days</button></li>
-                ·
-                <li><button onclick="updateChart(2880)" type="button">30 days</button></li>
-            </menu>
-        </div>
+            <h3>Trademarks &amp; independence</h3>
+            <p>GitHub, OpenAI, ChatGPT, Claude, and Anthropic are registered trademarks of their respective corporate owners. Blame AI is a completely independent, unofficial project. I am in no way affiliated with, endorsed by, or thank fucking god funded by any of these companies. I just like to laugh at them when they're down.</p>
 
-        <div id="section-content">
-
-            <div id="sr-announcement" class="sr-only" aria-live="polite"></div>
-
-            <div class="chart-wrapper">
-                <canvas id="trackerChart" role="img" aria-label="Linegraph with the number of GitHub pull requests compared to the downtime of AI's. See the table below for the raw data."></canvas>
-            </div>
-
-            <table class="sr-only" id="accessibility-table">
-                <caption>Raw GitHub pull request and AI downtime data</caption>
-                <thead>
-                <tr>
-                    <th scope="col">Date and time</th>
-                    <th scope="col">Pull requests</th>
-                    <th scope="col">OpenAI status</th>
-                    <th scope="col">Claude status</th>
-                </tr>
-                </thead>
-                <tbody id="table-body">
-                </tbody>
-            </table>
-        </div>
-
+            <h3>Privacy &amp; cookies</h3>
+            <p>I don't use tracking cookies, analytics, or behavioral tracking. Mostly because I respect your privacy, but also because I genuinely don't need to know what you do on the internet. I do not collect your personal data. However, this site is hosted via GitHub Pages and relies on third-party CDNs (like jsDelivr) to load the charts. These infrastructure providers may collect standard server logs (such as your IP address) to keep the internet running safely.</p>
+        </section>
     </main>
 
     <footer>
         <p><a href="https://bencebarens.nl/" target="_blank">Made by Bence</a></p>
         <p>All rights reserved | © 2026 Bence Barens</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="assets/app.js"></script>
 
 </body>
 </html>

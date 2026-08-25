@@ -109,7 +109,7 @@ function updateChart(dataPoints) {
         datasets: [{
             label: 'GitHub pull requests worldwide',
             data: chartData,
-            borderColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(0, 0, 0, 0.5)',
             borderWidth: 2,
             pointBackgroundColor: pointColors,
             pointBorderColor: pointColors,
@@ -167,5 +167,16 @@ function updateChart(dataPoints) {
     const timeFrame = dataPoints === 96 ? '24 hours' : dataPoints === 672 ? '7 days' : '30 days';
     document.getElementById('sr-announcement').innerText = `Graph and table are updated, now showing the last ${timeFrame}.`;
 }
+
+const controlButtons = document.querySelectorAll('.controls-container button');
+
+controlButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    controlButtons.forEach(btn => btn.removeAttribute('aria-current'));
+    this.setAttribute('aria-current', 'true');
+    const points = parseInt(this.getAttribute('data-points'));
+    updateChart(points);
+  });
+});
 
 fetchData();
