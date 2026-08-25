@@ -58,7 +58,7 @@ button{
 /* PAGE SPECIFIC */
 
 *{
-    font-family: "BenceSans", cursive;
+    font-family: "BenceSans", "Comic Sans", cursive;
 }
 
 html{
