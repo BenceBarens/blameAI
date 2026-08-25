@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bence Barens">
+
+    <title>Blame AI | graph and data</title>
+    <meta name="description" content="">
+    <meta name="robots" content="index,follow">
+
+    <meta property="og:site_name" content="Blame AI">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+
+    <link rel="icon" type="image/png" href="https://bencebarens.nl/img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://bencebarens.nl/img/favicon/favicon.svg">
+    <link rel="shortcut icon" href="https://bencebarens.nl/img/favicon/favicon.ico">
+    <link rel="manifest" href="https://bencebarens.nl/img/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="../assets/main.css">
+</head>
+<body id="about">
+    <header id="site-header">
+        <h1>BLAME AI</h1>
+        <p>Compare the downtime of major AI programs to the number of pull requests made on GitHub to estimate how doomed society is.</p>
+    </header>
+
+    <main id="main">
+        <section id="toolbar-section">
+            <h2 class="sr-only">Navigation and filters</h2>
+                <nav aria-label="Main navigation" class="toolbar-layout">
+                    <a href="../">Go back to the graph</a>
+                    <ul class="nav-links">
+                        <li><a href="../about/">About this site</a></li>
+                        <li><a href="" aria-current="page">About the graph and data</a></li>
+                    </ul>
+                </nav>
+        </section>
+        <section>
+            <h2>Data</h2>
+            <p>This site uses publicly available data provided by <a href="https://api.github.com/search/issues?q=is%3Apr%20created%3A%3E%3D2026-08-25T14%3A58%3A39.000Z">GitHub</a>, <a href="https://status.openai.com/api/v2/summary.json" target="_blank">OpenAI</a> and <a href="https://status.anthropic.com/api/v2/summary.json" target="_blank">Anthropic</a>. This data get stored into a <a href="https://gist.githubusercontent.com/BenceBarens/8262c049e135b17d4645a1d2d76bed09/raw/tracker-data.json" target="_blank">GitHub Gist</a>, where a entry is created every 15-ish minutes. These entries get stored for 30 days and are displayed in a graph.</p>
+        </section>
+        <section>
+            <h2>Graph</h2>
+            <p>The graph shows the number of pull requests created on GitHub in the last 15 minutes of the listed time. Since GitHub is the largest developer platform on earth, this metric can be interpreted as how active developers are at any given moment worldwide. This metric is shown alongside the downtime of two major AI providers, OpenAI (ChatGPT) and Anthropic (Claude).</p>
+        </section>
+        <section>
+            <h2>Why?</h2>
+            <p>If the theory of me and many others is correct, any time a AI system is down, you should see a decrease in made pull requests shortly after. This is fun, because it shows our level of independence dying with every passing second.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="https://bencebarens.nl/" target="_blank">Made by Bence</a></p>
+        <p>All rights reserved | © 2026 Bence Barens</p>
+    </footer>
+
+</body>
+</html>
