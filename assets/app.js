@@ -38,7 +38,11 @@ function getSeverity(status) {
 function updateChart(dataPoints) {
     if (allData.length === 0) return;
 
-    const slicedData = allData.slice(-dataPoints);
+    const timeFrameMs = dataPoints * 15 * 60 * 1000;
+    const lastEntryTime = new Date(allData[allData.length - 1].timestamp).getTime();
+    const cutoffTime = lastEntryTime - timeFrameMs;
+    const slicedData = allData.filter(entry => new Date(entry.timestamp).getTime() >= cutoffTime);
+    
     const chartData = slicedData.map(entry => ({ x: entry.timestamp, y: entry.prs }));
 
     const pointColors = slicedData.map(entry => {
