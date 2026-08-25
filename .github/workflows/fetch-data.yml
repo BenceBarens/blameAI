@@ -59,10 +59,10 @@ jobs:
               const oRes = await fetch('https://status.openai.com/api/v2/summary.json');
               const oData = await oRes.json();
               
-              openaiMessage = oData.status.description; // The human-readable status message
+              openaiMessage = oData.status.description; 
               
-              const chatComp = oData.components.find(c => c.name === 'ChatGPT');
-              const apiComp = oData.components.find(c => c.name === 'API');
+              const chatComp = oData.components.find(c => c.name === 'Responses');
+              const apiComp = oData.components.find(c => c.name === 'Codex API' || c.name === 'VS Code extension');
               
               openaiChat = chatComp ? chatComp.status : "unknown";
               openaiApi = apiComp ? apiComp.status : "unknown";
@@ -78,10 +78,10 @@ jobs:
               const cRes = await fetch('https://status.anthropic.com/api/v2/summary.json');
               const cData = await cRes.json();
               
-              claudeMessage = cData.status.description; // The human-readable status message
+              claudeMessage = cData.status.description; 
               
               const webComp = cData.components.find(c => c.name === 'claude.ai');
-              const apiComp = cData.components.find(c => c.name === 'API');
+              const apiComp = cData.components.find(c => c.name.includes('api.anthropic.com') || c.name === 'Claude Code');
               
               claudeWeb = webComp ? webComp.status : "unknown";
               claudeApi = apiComp ? apiComp.status : "unknown";
