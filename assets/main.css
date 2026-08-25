@@ -1,0 +1,197 @@
+/* FONTS */
+
+@font-face{
+    font-family: "BenceSans";
+    src: 
+        url("BenceSans.woff2") format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+
+/* GENERAL STUFF */
+
+html{
+	margin: 0;
+	padding: 0;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    scroll-behavior: smooth;
+}
+
+body, main{
+	width: 100%;
+	margin: 0;
+}
+
+*, *::after, *::before {
+    box-sizing:border-box;  
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+a{
+    color: inherit;
+    text-decoration: underline dashed 0.075em;
+}
+
+a:hover{
+    text-decoration: underline solid 0.075em;
+}
+
+button{
+    cursor: pointer;
+}
+
+/* SKIP TO MAIN */
+
+/* body > a:first-child{
+    position: absolute;
+    left: -999rem;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    text-decoration: none;
+}
+
+body > a:first-child:focus{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1rem;
+    opacity: 1;
+    padding: 0.5rem;
+    z-index: 1000;
+} */
+
+/* PAGE SPECIFIC */
+
+*{
+    font-family: "BenceSans", cursive;
+}
+
+html{
+    text-align: center;
+    height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+    html{
+        color: white;
+        background-color: black;
+    }
+}
+
+body{
+    margin: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+h1{
+    font-size: 3em;
+    margin: 0;
+}
+
+li{
+    list-style-type: none;
+    display: inline;
+}
+
+button{
+    border: none;
+    background: none;
+    padding: 0;
+    text-decoration: underline dashed 0.075em;
+    font-size: inherit;
+    color: inherit;
+}
+
+button:hover{
+    text-decoration: underline solid 0.075em;
+}
+
+menu, ul{
+    padding: 0;
+}
+
+header{
+    margin: 2em;
+}
+
+header p{
+    margin: 0 auto;
+    font-size: 1.4em;
+    max-width: 40em;
+}
+
+.toolbar-layout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100rem;
+    margin: auto;
+    padding: 0 0.5em;
+    font-size: 1.2em;
+}
+
+.toolbar-layout li:not(:last-child)::after {
+    content: "·";
+    margin-left: 0.5em;
+    color: inherit;
+}
+
+#chart-section{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-width: 100rem;
+    margin: auto;
+    padding: 0 0.5em;
+}
+
+.chart-wrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+table{
+    height: 100%;
+    display: inline;
+    text-align: left;
+    overflow: scroll;
+}
+
+footer{
+    margin: 1em;
+}
+
+footer p{
+    margin: 0.5em;
+}

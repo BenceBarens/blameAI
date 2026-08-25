@@ -1,0 +1,302 @@
+[
+  {
+    "timestamp": "2026-08-24T14:04:29.288Z",
+    "prs": 9216,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T14:10:43.602Z",
+    "prs": 9836,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T14:54:23.086Z",
+    "prs": 9431,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T15:00:59.010Z",
+    "prs": 9651,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T15:49:46.560Z",
+    "prs": 9718,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T15:56:37.399Z",
+    "prs": 9813,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T16:42:11.858Z",
+    "prs": 9378,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T17:17:08.280Z",
+    "prs": 9691,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T17:57:56.823Z",
+    "prs": 9447,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T18:51:19.283Z",
+    "prs": 8919,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T19:29:14.534Z",
+    "prs": 9130,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T19:57:35.629Z",
+    "prs": 9107,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T20:38:12.703Z",
+    "prs": 9047,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T21:05:37.625Z",
+    "prs": 8354,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T21:43:50.121Z",
+    "prs": 7966,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T22:03:20.518Z",
+    "prs": 7763,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T22:44:23.662Z",
+    "prs": 7290,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T23:05:25.057Z",
+    "prs": 6914,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T23:35:09.269Z",
+    "prs": 6571,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-24T23:58:26.456Z",
+    "prs": 6776,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-25T01:45:05.697Z",
+    "prs": 5980,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-25T02:45:52.587Z",
+    "prs": 6186,
+    "openai_chatgpt": "operational",
+    "openai_api": "operational",
+    "openai_message": "All Systems Operational",
+    "claude_web": "operational",
+    "claude_api": "major_outage",
+    "claude_message": "We are currently investigating API failures"
+  },
+  {
+    "timestamp": "2026-08-25T03:49:02.835Z",
+    "prs": 6201,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "partial_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "major_outage",
+    "claude_message": "We are currently investigating API failures"
+  },
+  {
+    "timestamp": "2026-08-25T04:38:44.635Z",
+    "prs": 5968,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "partial_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "major_outage",
+    "claude_message": "We are currently investigating API failures"
+  },
+  {
+    "timestamp": "2026-08-25T05:17:04.388Z",
+    "prs": 6392,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "major_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-25T05:57:52.107Z",
+    "prs": 6056,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "major_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-25T06:59:34.510Z",
+    "prs": 7007,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "major_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-25T07:51:55.195Z",
+    "prs": 7612,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "major_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-25T08:41:43.336Z",
+    "prs": 7506,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "major_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  },
+  {
+    "timestamp": "2026-08-25T09:20:04.567Z",
+    "prs": 7932,
+    "openai_chatgpt": "degraded_performance",
+    "openai_api": "major_outage",
+    "openai_message": "We are currently investigating API failures",
+    "claude_web": "operational",
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
+  }
+]
