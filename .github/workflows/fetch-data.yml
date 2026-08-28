@@ -2,7 +2,7 @@ name: Fetch PR and AI status data
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
 
 jobs:
