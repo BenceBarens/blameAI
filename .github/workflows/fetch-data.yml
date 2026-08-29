@@ -12,118 +12,118 @@ jobs:
       - name: Fetch and Update Data
         uses: actions/github-script@v7
         env:
-          GIST_ID: ${{ secrets.GIST_ID }}
-          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+            GIST_ID: ${{ secrets.GIST_ID }}
+            GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
         with:
-          script: |
-            const gistId = process.env.GIST_ID;
-            
-            const headers = {
-              'Authorization': `token ${process.env.GIST_TOKEN}`,
-              'Accept': 'application/vnd.github.v3+json',
-              'User-Agent': 'BlameAI-Tracker-Action' 
-            };
+            script: |
+                const gistId = process.env.GIST_ID;
+                
+                const headers = {
+                    'Authorization': `token ${process.env.GIST_TOKEN}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'User-Agent': 'BlameAI-Tracker-Action' 
+                };
 
-            //Fetch Gist history
-            let history = [];
-            try {
-              const gistRes = await fetch(`https://api.github.com/gists/${gistId}`, { headers });
-              if (gistRes.ok) {
-                const gistData = await gistRes.json();
-                const content = gistData.files['tracker-data.json'].content;
-                history = JSON.parse(content);
-                if (!Array.isArray(history)) history = [];
-              }
-            } catch (error) {
-              console.log("No existing Gist history found or parse error.");
-            }
-
-            //Fetch PR data
-            const fifteenMinsAgo = new Date(Date.now() - 15 * 60000).toISOString();
-            const prQuery = encodeURIComponent(`is:pr created:>=${fifteenMinsAgo}`);
-            const prResponse = await fetch(`https://api.github.com/search/issues?q=${prQuery}`, { headers });
-            
-            if (!prResponse.ok) {
-              console.error("GitHub API Error:", await prResponse.text());
-              throw new Error("Couldn't fetch PR data");
-            }
-            
-            const prData = await prResponse.json();
-            const prCount = prData.total_count || 0;
-
-            //Fetch OpenAI status, components, and description
-            let openaiChat = "unknown";
-            let openaiApi = "unknown";
-            let openaiMessage = "unknown";
-            try {
-              const oRes = await fetch('https://status.openai.com/api/v2/summary.json');
-              const oData = await oRes.json();
-              
-              openaiMessage = oData.status.description; 
-              
-              const chatComp = oData.components.find(c => c.name === 'Responses');
-              const apiComp = oData.components.find(c => c.name === 'Codex API' || c.name === 'VS Code extension');
-              
-              openaiChat = chatComp ? chatComp.status : "unknown";
-              openaiApi = apiComp ? apiComp.status : "unknown";
-            } catch (e) { 
-              console.log("OpenAI fetch failed"); 
-            }
-
-            //Fetch Claude status, components, and description
-            let claudeWeb = "unknown";
-            let claudeApi = "unknown";
-            let claudeMessage = "unknown";
-            try {
-              const cRes = await fetch('https://status.anthropic.com/api/v2/summary.json');
-              const cData = await cRes.json();
-              
-              claudeMessage = cData.status.description; 
-              
-              const webComp = cData.components.find(c => c.name === 'claude.ai');
-              const apiComp = cData.components.find(c => c.name.includes('api.anthropic.com') || c.name === 'Claude Code');
-              
-              claudeWeb = webComp ? webComp.status : "unknown";
-              claudeApi = apiComp ? apiComp.status : "unknown";
-            } catch (e) { 
-              console.log("Claude fetch failed"); 
-            }
-
-            //Build JSON
-            const newEntry = {
-              timestamp: new Date().toISOString(),
-              prs: prCount,
-              openai_chatgpt: openaiChat,
-              openai_api: openaiApi,
-              openai_message: openaiMessage,
-              claude_web: claudeWeb,
-              claude_api: claudeApi,
-              claude_message: claudeMessage
-            };
-
-            console.log("New data point:", newEntry);
-            history.push(newEntry);
-
-            //Slice history to max 30 days
-            if (history.length > 2880) {
-              history = history.slice(-2880);
-            }
-
-            //Update Gist
-            const updateRes = await fetch(`https://api.github.com/gists/${gistId}`, {
-              method: 'PATCH',
-              headers: { ...headers, 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                files: {
-                  'tracker-data.json': {
-                    content: JSON.stringify(history, null, 2)
-                  }
+                //Fetch Gist history
+                let history = [];
+                try {
+                    const gistRes = await fetch(`https://api.github.com/gists/${gistId}`, { headers });
+                    if (gistRes.ok) {
+                            const gistData = await gistRes.json();
+                            const content = gistData.files['tracker-data.json'].content;
+                            history = JSON.parse(content);
+                            if (!Array.isArray(history)) history = [];
+                    }
+                } catch (error) {
+                    console.log("No existing Gist history found or parse error.");
                 }
-              })
-            });
-            
-            if (!updateRes.ok) {
-              throw new Error(`Gist update failed: ${await updateRes.text()}`);
-            } else {
-              console.log("Gist update completed");
-            }
+
+                //Fetch PR data
+                const fifteenMinsAgo = new Date(Date.now() - 15 * 60000).toISOString();
+                const prQuery = encodeURIComponent(`is:pr created:>=${fifteenMinsAgo}`);
+                const prResponse = await fetch(`https://api.github.com/search/issues?q=${prQuery}`, { headers });
+                
+                if (!prResponse.ok) {
+                    console.error("GitHub API Error:", await prResponse.text());
+                    throw new Error("Couldn't fetch PR data");
+                }
+                
+                const prData = await prResponse.json();
+                const prCount = prData.total_count || 0;
+
+                //Fetch OpenAI status, components, and description
+                let openaiChat = "unknown";
+                let openaiApi = "unknown";
+                let openaiMessage = "unknown";
+                try {
+                    const oRes = await fetch('https://status.openai.com/api/v2/summary.json');
+                    const oData = await oRes.json();
+                    
+                    openaiMessage = oData.status.description; 
+                    
+                    const chatComp = oData.components.find(c => c.name === 'Responses');
+                    const apiComp = oData.components.find(c => c.name === 'Codex API' || c.name === 'VS Code extension');
+                    
+                    openaiChat = chatComp ? chatComp.status : "unknown";
+                    openaiApi = apiComp ? apiComp.status : "unknown";
+                } catch (e) { 
+                    console.log("OpenAI fetch failed"); 
+                }
+
+                //Fetch Claude status, components, and description
+                let claudeWeb = "unknown";
+                let claudeApi = "unknown";
+                let claudeMessage = "unknown";
+                try {
+                    const cRes = await fetch('https://status.anthropic.com/api/v2/summary.json');
+                    const cData = await cRes.json();
+                    
+                    claudeMessage = cData.status.description; 
+                    
+                    const webComp = cData.components.find(c => c.name === 'claude.ai');
+                    const apiComp = cData.components.find(c => c.name.includes('api.anthropic.com') || c.name === 'Claude Code');
+                    
+                    claudeWeb = webComp ? webComp.status : "unknown";
+                    claudeApi = apiComp ? apiComp.status : "unknown";
+                } catch (e) { 
+                    console.log("Claude fetch failed"); 
+                }
+
+                //Build JSON
+                const newEntry = {
+                    timestamp: new Date().toISOString(),
+                    prs: prCount,
+                    openai_chatgpt: openaiChat,
+                    openai_api: openaiApi,
+                    openai_message: openaiMessage,
+                    claude_web: claudeWeb,
+                    claude_api: claudeApi,
+                    claude_message: claudeMessage
+                };
+
+                console.log("New data point:", newEntry);
+                history.push(newEntry);
+
+                //Slice history to max 30 days
+                if (history.length > 2880) {
+                    history = history.slice(-2880);
+                }
+
+                //Update Gist
+                const updateRes = await fetch(`https://api.github.com/gists/${gistId}`, {
+                    method: 'PATCH',
+                    headers: { ...headers, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        files: {
+                            'tracker-data.json': {
+                                    content: JSON.stringify(history, null, 2)
+                            }
+                        }
+                    })
+                });
+                
+                if (!updateRes.ok) {
+                    throw new Error(`Gist update failed: ${await updateRes.text()}`);
+                } else {
+                    console.log("Gist update completed");
+                }
