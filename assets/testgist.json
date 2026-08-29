@@ -236,8 +236,8 @@
     "openai_api": "partial_outage",
     "openai_message": "We are currently investigating API failures",
     "claude_web": "operational",
-    "claude_api": "major_outage",
-    "claude_message": "We are currently investigating API failures"
+    "claude_api": "operational",
+    "claude_message": "All Systems Operational"
   },
   {
     "timestamp": "2026-08-25T05:17:04.388Z",
