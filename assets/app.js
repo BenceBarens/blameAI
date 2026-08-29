@@ -13,7 +13,7 @@ async function fetchData() {
         const cacheBuster = new Date().getTime();
         const response = await fetch(`${GIST_URL}?t=${cacheBuster}`, { cache: 'no-store' });
         allData = await response.json();
-        updateChart(96); 
+        updateChart(288); 
     } catch (error) {
         console.error("Error retrieving data:", error);
     }
@@ -168,7 +168,7 @@ function updateChart(dataPoints) {
         tbody.appendChild(tr);
     });
 
-    const timeFrame = dataPoints === 96 ? '24 hours' : dataPoints === 672 ? '7 days' : '30 days';
+    const timeFrame = dataPoints === 96 ? '3 days' : dataPoints === 672 ? '7 days' : '30 days';
     document.getElementById('sr-announcement').innerText = `Graph and table are updated, now showing the last ${timeFrame}.`;
 }
 
